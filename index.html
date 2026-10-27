@@ -1,61 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Add this script FIRST before anything else -->
-  <script>
-    if (localStorage.getItem('cameFromColorPage') === 'true') {
-      document.write('<style>.lamp-off,.string-off{display:none!important}.lamp-container{transform:translate(calc(-50% - 25vw),-50%)!important}.scene{background:#1a1a1a!important}.navbar,.content{opacity:1!important;pointer-events:auto!important}</style>');
-    }
-  </script>
-
-  <title>Riley Willard - Home</title>
-  <link rel="stylesheet" href="https://use.typekit.net/lez4ize.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riley Willard — 3D Character Animator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="scene">
-    <!-- Lamp Container -->
-    <div class="lamp-container">
-      <!-- Lamp OFF (clickable string) -->
-      <img src="assets/LampOff_Lamp.svg" class="lamp-svg lamp-off active" alt="Lamp Off">
-      <img src="assets/LampOff_String.svg" class="lamp-svg string-off clickable active" alt="String Off">
-      
-      <!-- Lamp ON variations (hidden initially) -->
-      <img src="assets/LampOn_home.svg" class="lamp-svg lamp-on lamp-home" alt="Lamp On Home">
-      <img src="assets/LampOn_home_noshadow.svg" class="lamp-svg lamp-on lamp-home-noshadows" alt="Lamp On Home No Shadows">
-      <img src="assets/LampOn_Blue.svg" class="lamp-svg lamp-on lamp-blue" alt="Lamp On Blue">
-      <img src="assets/LampOn_Green.svg" class="lamp-svg lamp-on lamp-green" alt="Lamp On Green">
-      <img src="assets/LampOn_Peach.svg" class="lamp-svg lamp-on lamp-peach" alt="Lamp On Peach">
-      <img src="assets/LampOn_Purple.svg" class="lamp-svg lamp-on lamp-purple" alt="Lamp On Purple">
-      <img src="assets/LampOn_String.svg" class="lamp-svg string-on" alt="String On">
+
+  <nav>
+    <div class="wrap">
+      <a href="index.html" class="nav-mark" aria-label="Riley Willard, 3D Animator — home">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+        <span class="nav-mark-role">3D Animator</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="current" style="--accent:var(--gold);">Home</a></li>
+        <li><a href="animation.html" style="--accent:var(--sage);">Animation</a></li>
+        <li><a href="projects.html" style="--accent:var(--peach);">Projects</a></li>
+        <li><a href="about.html" style="--accent:var(--blue);">About</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-      <a href="index.html" class="nav-item home" data-color="home">Home</a>
-      <a href="blue.html" class="nav-item blue" data-color="blue">Blue</a>
-      <a href="green.html" class="nav-item green" data-color="green">Green</a>
-      <a href="peach.html" class="nav-item peach" data-color="peach">Peach</a>
-      <a href="purple.html" class="nav-item purple" data-color="purple">Purple</a>
-    </nav>
-
-    <!-- Home Content -->
-    <div class="content">
-      <section class="content-section active">
-        <h1>Welcome to Riley's Portfolio</h1>
-        <p>:)</p>
-      </section>
+  <div class="film-divider">
+    <div class="sprocket-row">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
   </div>
 
-  <!-- Audio for string pull sound -->
-  <audio id="string-sound" preload="auto">
-    <source src="assets/string-pull.mp3" type="audio/mpeg">
-  </audio>
+  <div class="accent-topbar" style="--accent:var(--gold);"></div>
 
-  <script src="script-home.js"></script>
+  <header class="hero" id="top">
+    <div class="wrap">
+
+      <div class="hero-panel">
+        <div class="hero-top">
+          <div class="lamp-stage" id="lampStage" role="button" tabindex="0" aria-label="Turn on the lamp">
+            <div class="lamp-glow" id="lampGlow"></div>
+
+            <div class="lamp-visual">
+              <img class="lamp-img" id="heroLamp" src="images/lamp-plain.png" alt="Illustration of a stained-glass table lamp, RW monogram">
+              <div class="lamp-shelf"></div>
+            </div>
+          </div>
+
+          <div class="hero-copy">
+            <h1>Riley<br><em>Willard</em></h1>
+            <p class="hero-sub">Bringing characters and worlds to life, frame by frame — with a soft spot for production and the magic of watching a story finally come together.</p>
+            <div class="hero-cta">
+              <a href="projects.html" class="btn" id="viewWorkBtn">View Demo Reel</a>
+              <a href="about.html" class="btn-ghost">About Riley →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-reel" id="demoReel">
+        <div class="demo-reel-label">
+          <div class="section-label" style="margin-bottom:0;">— Screening Room —</div>
+        </div>
+        <div class="demo-reel-frame-wrap">
+          <div class="marquee-lights">
+            <div class="edge top"></div>
+            <div class="edge bottom"></div>
+            <div class="edge left"></div>
+            <div class="edge right"></div>
+          </div>
+          <div class="demo-reel-frame has-video">
+            <video class="demo-reel-video" id="demoReelVideo" controls preload="metadata">
+              <source src="videos/demo-reel.mp4" type="video/mp4">
+            </video>
+            <button class="demo-reel-fullscreen-btn" id="demoReelFullscreenBtn" aria-label="Watch full screen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+              Watch Full Screen
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="sprocket-row" style="opacity:0.4;">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="index.html" class="nav-mark">
+        <img src="images/rw-mark.png" alt="RW monogram">
+        <span class="nav-mark-text">Riley <em>Willard</em></span>
+      </a>
+      <span class="site-footer-meta">Character Animation · 2026</span>
+    </div>
+    <div class="footer-audience-row">
+      <img id="footerAudienceImg" class="footer-audience-img" src="images/footer/audience-home.svg" data-default="images/footer/audience-home.svg" alt="Row of theater seats">
+      <div class="footer-nav-overlay">
+        <a href="index.html" class="footer-nav-seg" data-page="home" style="--accent:var(--gold); left:35.36%; width:6.93%;"><span class="sr-only">Home</span></a>
+        <a href="about.html" class="footer-nav-seg" data-page="about" style="--accent:var(--blue); left:40.79%; width:7.05%;"><span class="sr-only">About</span></a>
+        <a href="projects.html" class="footer-nav-seg" data-page="projects" style="--accent:var(--peach); left:46.47%; width:6.99%;"><span class="sr-only">Projects</span></a>
+        <a href="animation.html" class="footer-nav-seg" data-page="animation" style="--accent:var(--sage); left:52.16%; width:7.05%;"><span class="sr-only">Animation</span></a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const heroLamp = document.getElementById('heroLamp');
+  const lampGlow = document.getElementById('lampGlow');
+  const stage = document.getElementById('lampStage');
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const root = document.documentElement;
+
+  const SRC = {
+    plain:  "images/lamp-plain.png",
+    all:    "images/lamp-all.png",
+    blue:   "images/lamp-blue.png",
+    peach:  "images/lamp-peach.png",
+    green:  "images/lamp-green.png",
+    purple: "images/lamp-purple.png",
+  };
+  const PAGE_COLOR = { 'about.html': 'blue', 'projects.html': 'peach', 'animation.html': 'green' };
+  const COLOR_HEX = { blue: '#7c8ec2', peach: '#e2a483', green: '#8ba474', purple: '#a68cbd' };
+
+  let lampOn = false;
+  let hovering = null;
+
+  function render(){
+    document.body.classList.toggle('lamp-on', lampOn);
+
+    if(hovering){
+      heroLamp.src = SRC[hovering];
+      lampGlow.classList.add('show');
+      root.style.setProperty('--marquee-color', COLOR_HEX[hovering]);
+    } else {
+      root.style.setProperty('--marquee-color', 'var(--gold)');
+      if(lampOn){
+        heroLamp.src = SRC.all;
+        lampGlow.classList.add('show');
+      } else {
+        heroLamp.src = SRC.plain;
+        lampGlow.classList.remove('show');
+      }
+    }
+  }
+
+  function toggleLamp(){
+    lampOn = !lampOn;
+    render();
+    if(lampOn){
+      const demoReel = document.getElementById('demoReel');
+      if(demoReel) demoReel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  stage.addEventListener('click', toggleLamp);
+  stage.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleLamp(); }
+  });
+
+  const viewWorkBtn = document.getElementById('viewWorkBtn');
+  if(viewWorkBtn){
+    viewWorkBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(!lampOn){ lampOn = true; render(); }
+      const demoReel = document.getElementById('demoReel');
+      if(demoReel) demoReel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  const demoReelVideo = document.getElementById('demoReelVideo');
+  const demoReelFullscreenBtn = document.getElementById('demoReelFullscreenBtn');
+  if(demoReelFullscreenBtn && demoReelVideo){
+    demoReelFullscreenBtn.addEventListener('click', () => {
+      if(demoReelVideo.requestFullscreen) demoReelVideo.requestFullscreen();
+      else if(demoReelVideo.webkitRequestFullscreen) demoReelVideo.webkitRequestFullscreen();
+      else if(demoReelVideo.webkitEnterFullscreen) demoReelVideo.webkitEnterFullscreen();
+      demoReelVideo.play().catch(() => {});
+    });
+  }
+
+  navLinks.forEach(link => {
+    const file = link.getAttribute('href');
+    const color = PAGE_COLOR[file];
+    if(!color) return;
+    link.addEventListener('mouseenter', () => { hovering = color; render(); });
+    link.addEventListener('focus', () => { hovering = color; render(); });
+    link.addEventListener('mouseleave', () => { hovering = null; render(); });
+    link.addEventListener('blur', () => { hovering = null; render(); });
+  });
+
+  render();
+</script>
+
+<script>
+  (function(){
+    const img = document.getElementById('footerAudienceImg');
+    if(!img) return;
+    const defaultSrc = img.dataset.default;
+    const IMAGES = {
+      home: 'images/footer/audience-home.svg',
+      about: 'images/footer/audience-about.svg',
+      projects: 'images/footer/audience-projects.svg',
+      animation: 'images/footer/audience-animation.svg',
+      contact: 'images/footer/audience-contact.svg',
+    };
+    const COLORS = { home:'#c9a24a', about:'#7c8ec2', projects:'#e2a483', animation:'#8ba474', contact:'#a68cbd' };
+
+    function lightUp(page){
+      img.src = IMAGES[page];
+      img.style.filter = `drop-shadow(0 0 14px ${COLORS[page]}) drop-shadow(0 0 4px ${COLORS[page]})`;
+    }
+    function reset(){
+      img.src = defaultSrc;
+      img.style.filter = '';
+    }
+
+    document.querySelectorAll('.footer-nav-seg').forEach(seg => {
+      const page = seg.dataset.page;
+      seg.addEventListener('mouseenter', () => lightUp(page));
+      seg.addEventListener('mouseleave', reset);
+      seg.addEventListener('focus', () => lightUp(page));
+      seg.addEventListener('blur', reset);
+    });
+  })();
+</script>
+
+
+
+<script>
+  (function(){
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(!navToggle || !navLinks) return;
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
